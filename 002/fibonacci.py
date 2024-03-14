@@ -18,7 +18,7 @@ single argument `n`, and return the nth number in the sequence.
 To get you started, it *might* be a good idea to make `fibonacci` a recursive
 function: but note that this alone probably won't be able to perform the
 calculation in less than 0.5s (unless you have a very powerful machine).
-A clue to making it faster would be: each call to the (recursive) fibonacci
+A clue to making it faster would be: each call to the (recursive) `fibonacci`
 function will likely result in 2 further calls to the function (to get the
 previous two numbers). This will result in a large number of calls to
 retrieve the same number in the sequence. What if the function could remember
