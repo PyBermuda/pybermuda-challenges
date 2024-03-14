@@ -68,9 +68,85 @@ def solve_wordle(wordle: Wordle, initial_guess: str) -> str:
     """
     Solves a wordle puzzle using the given initial guess
     """
+    """
+    Solves a wordle puzzle using the given initial guess
+    """
     # write your code here 👇👇
-    pass
-    # write your code here 👆👆
+    # letter_list = list(initial_guess)
+    # initial_clue = list(Wordle().guess("HELLO"))
+    # initial_clue = [x for x in initial_clue if x!=' ']
+    
+    
+    letter_range = range(0,5)
+    word_list = [ "-"  for i in letter_range ]
+    contains_list = []
+    doesnt_contain_list = []
+
+
+    ## Code to filter list of words
+    full_word_dict = [{"L"+str(i) : list(word)[i] for i in  letter_range} for word in WORDS]
+    full_word_df = pd.DataFrame(full_word_dict)
+
+    filtered_word_df = full_word_df
+
+    filtered_word_count = len(filtered_word_df)
+    attempt_num =1
+    
+    guess = initial_guess
+    clue_string=""
+    while clue_string != '🟩🟩🟩🟩🟩' and attempt_num<200:
+        word = guess
+        letter_list = list(word)
+        clue = list(wordle.guess(word))
+        clue_list = [x for x in clue if x!=' ']
+        clue_string = ''.join(clue_list)
+        
+        for i, letter in enumerate(clue_list):
+            if letter=='🟩': 
+                word_list[i]= letter_list[i]
+            elif letter=='🟨': 
+                contains_list.append(letter_list[i])
+            else:
+                doesnt_contain_list.append(letter_list[i])
+            
+
+        print(word, clue_list, word_list)
+        # check_letters = lambda row:any(letter in row for letter in contains_list)
+
+        # green_filter = df.apply(lambda row:all(row[col]==letter and col==index for index, (col,letter) in enumerate(zip(df.columns,letters_list)),axis=1)
+
+        # Filter from green list
+        for i, word_guess in enumerate(word_list):
+            if clue_list[i]=="🟩":
+                df_index = "L"+str(i)
+                filtered_word_df = filtered_word_df[filtered_word_df[df_index] == word_guess]
+            else:
+                filtered_word_df= filtered_word_df
+            # filtered_word_df = filtered_word_df.copy()
+
+
+        # Filter from yellow list
+        yellow_clue = lambda row:any(letter in row for letter in contains_list)
+        filtered_word_df = filtered_word_df[filtered_word_df.map(yellow_clue).any(axis=1)]
+        # filtered_word_df = filtered_word_df.copy()
+        
+        # Remaining list
+        filtered_word_count=len(filtered_word_df)
+        print(filtered_word_count)
+        # clue_string = ''.join(clue_list)
+        ##clue_list = ''.join(clue_list.values[0])
+        if clue_string == '🟩🟩🟩🟩🟩':
+            pass
+        elif filtered_word_count>1:
+            attempt_num+=1
+            sampled_row = filtered_word_df.sample(n=1, replace=False)
+            guess = ''.join(sampled_row.values[0])
+        else:
+            attempt_num+=1
+            sampled_row = filtered_word_df
+            guess = ''.join(sampled_row.values)
+
+    return guess
 
 
 if __name__ == "__main__":
