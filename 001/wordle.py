@@ -34,6 +34,8 @@ https://www.nytimes.com/svc/wordle/v2/YYYY-MM-DD.json
 """
 from urllib.request import urlopen
 from random import choice
+import re
+import random
 
 WORD_LIST_URL = "https://raw.githubusercontent.com/tabatkins/wordle-list/main/words"
 
@@ -68,9 +70,43 @@ def solve_wordle(wordle: Wordle, initial_guess: str) -> str:
     """
     Solves a wordle puzzle using the given initial guess
     """
-    # write your code here 👇👇
-    pass
-    # write your code here 👆👆
+
+    candidates = [_ for _ in WORDS]
+    guess = initial_guess
+    regex = "....."
+    while True:
+        clue = wordle.guess(guess)
+        print(f"Guess: {guess}, Clue: {clue}")
+
+        if "🟩" * 5 in clue:
+            return guess
+
+        required_letters = []
+
+        for j in range(5):
+            i = j * 2
+            if clue[i] == "🟨":
+                required_letters.append(guess[j])
+            if clue[i] == "🟩":
+                regex = regex[:j] + guess[j] + regex[j+1:]
+
+
+
+        new_candidates = []
+        for word in candidates:
+            if re.match(regex, word) and all(letter in word for letter in required_letters):
+                new_candidates.append(word)
+
+        candidates = new_candidates
+        print(len(candidates))
+        
+        if len(candidates) == 1:
+            return candidates[0]
+        if len(candidates) == 0:
+            raise Exception("No solution found")
+        guess = random.choice(candidates)
+    raise Exception("No solution found")
+        
 
 
 if __name__ == "__main__":
