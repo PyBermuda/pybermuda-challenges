@@ -74,38 +74,39 @@ def solve_wordle(wordle: Wordle, initial_guess: str) -> str:
     candidates = [_ for _ in WORDS]
     guess = initial_guess
     regex = "....."
+    attempt = 0
     while True:
-        clue = wordle.guess(guess)
-        print(f"Guess: {guess}, Clue: {clue}")
+        attempt += 1
+        clue = wordle.guess(guess).replace(" ", "")
+        print(f"Attempt {attempt}, Guess: {guess}, Clue: {clue}")
 
         if "🟩" * 5 in clue:
             return guess
 
         required_letters = []
+        prohibited_letters = []
 
         for j in range(5):
-            i = j * 2
-            if clue[i] == "🟨":
+            if clue[j] == "🟨":
                 required_letters.append(guess[j])
-            if clue[i] == "🟩":
+            if clue[j] == "🟩":
                 regex = regex[:j] + guess[j] + regex[j+1:]
-
-
+            if clue[j] == "⬜":
+                prohibited_letters.append(guess[j])
 
         new_candidates = []
         for word in candidates:
-            if re.match(regex, word) and all(letter in word for letter in required_letters):
+            if (re.match(regex, word) 
+                and all(letter in word for letter in required_letters) 
+                and not any(letter in word for letter in prohibited_letters)
+                and not word == guess):
                 new_candidates.append(word)
 
         candidates = new_candidates
-        print(len(candidates))
         
-        if len(candidates) == 1:
-            return candidates[0]
         if len(candidates) == 0:
             raise Exception("No solution found")
         guess = random.choice(candidates)
-    raise Exception("No solution found")
         
 
 
