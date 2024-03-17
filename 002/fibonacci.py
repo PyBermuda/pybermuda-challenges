@@ -29,21 +29,14 @@ from time import perf_counter
 
 def fibonacci(n) -> int:
     # write your code here 👇👇class Fibonacci:
-    memo = {}
-
-    def calc(n: int) -> int:
-        if n < 0:
-            raise Exception("This Fibonacci sequence is only defined for the natural numbers.")
-        if n == 0:
-            return 0
-        if n == 1:
-            return 0
-        if n == 2:
-            return 1
-        if n not in memo:
-            memo[n] = calc(n - 1) + calc(n - 2)
-        return memo[n]
-    return calc(n)
+    if n < 0:
+        raise Exception("This Fibonacci sequence is only defined for the natural numbers.")
+    v = (2, 0)
+    def raise_to_next_power(v):
+        return (v[0] + 5 * v[1]) >> 1, (v[1] + v[0]) >> 1
+    for _ in range(1, n):
+        v = raise_to_next_power(v)
+    return v[1]
     # write your code here 👆👆
 
 
