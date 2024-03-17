@@ -20,4 +20,4 @@ def test_can_calculate_fib_5():
     assert f.fibonacci(5) == 5  
 
 def test_can_calculate_fib_6():
-    assert f.fibonacci(6) == 6  
+    assert f.fibonacci(6) == 8  
