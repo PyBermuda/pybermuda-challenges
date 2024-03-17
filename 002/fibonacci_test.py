@@ -21,3 +21,9 @@ def test_can_calculate_fib_5():
 
 def test_can_calculate_fib_6():
     assert f.fibonacci(6) == 8  
+
+def test_can_calculate_fib_negative_fib():
+    expected_message = "The Fibonacci sequence is only defined for whole numbers."
+    with pytest.raises(Exception) as e:
+        f.fibonacci(-3)
+    assert str(e.value) == expected_message
