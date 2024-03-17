@@ -30,7 +30,9 @@ from time import perf_counter
 
 def fibonacci(n) -> int:
     # write your code here 👇👇
-    pass
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
     # write your code here 👆👆
 
 
