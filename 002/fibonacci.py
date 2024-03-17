@@ -28,7 +28,7 @@ previous calculations it had performed?
 from time import perf_counter
 
 def fibonacci(n) -> int:
-    # write your code here 👇👇class Fibonacci:
+    # write your code here 👇👇
     if n < 0:
         raise Exception("This Fibonacci sequence is only defined for the natural numbers.")
     v = (2, 0)
