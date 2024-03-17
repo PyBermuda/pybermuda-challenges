@@ -27,18 +27,23 @@ previous calculations it had performed?
 
 from time import perf_counter
 
-
 def fibonacci(n) -> int:
-    # write your code here 👇👇
-    if n < 0:
-        raise Exception("This Fibonacci sequence is only defined for the natural numbers.")
-    if n == 0:
-        return 0
-    if n == 1:
-        return 0
-    if n == 2:
-        return 1
-    return fibonacci(n - 1) + fibonacci(n - 2)
+    # write your code here 👇👇class Fibonacci:
+    memo = {}
+
+    def calc(n: int) -> int:
+        if n < 0:
+            raise Exception("This Fibonacci sequence is only defined for the natural numbers.")
+        if n == 0:
+            return 0
+        if n == 1:
+            return 0
+        if n == 2:
+            return 1
+        if n not in memo:
+            memo[n] = calc(n - 1) + calc(n - 2)
+        return memo[n]
+    return calc(n)
     # write your code here 👆👆
 
 
