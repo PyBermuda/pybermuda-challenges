@@ -30,6 +30,8 @@ from time import perf_counter
 
 def fibonacci(n) -> int:
     # write your code here 👇👇
+    if n < 0:
+        raise Exception("The Fibonacci sequence is only defined for whole numbers.")
     if n < 2:
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
