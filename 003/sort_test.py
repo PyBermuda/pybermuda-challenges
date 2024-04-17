@@ -14,3 +14,23 @@ def test_sorting_alphabetical_order():
     list = ['a', 'B', 'd', 'C']
     assert sort(list, order='asc') == ['B', 'C', 'a', 'd']
     assert sort(list, order='desc') == ['d', 'a', 'C', 'B']
+
+def test_sort_really_long_list():
+    size = 1_000_000
+    list = []
+    for i in range(size):
+        list.append(random.randint(0, 1_000_000_000))
+
+    sorted = sort(list, order='asc')
+    for i in range(1, size):
+        assert sorted[i - 1] <= sorted[i]
+
+def test_sort_really_long_list_including_negative_desc():
+    size = 1_000_000
+    list = []
+    for i in range(size):
+        list.append(random.randint(-1_000_000_000, 1_000_000_000))
+
+    sorted = sort(list, order='desc')
+    for i in range(1, size):
+        assert sorted[i - 1] >= sorted[i]
