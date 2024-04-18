@@ -2,7 +2,7 @@
 
 This repository contains scripts for small Python challenges to try, and subsequently discuss, at PyBermuda meetups.
 
-It is recommended that you [fork this repository](https://github.com/PyBermuda/pybermuda-challenges/fork) and keep a the copy on your own GitHub account.
+It is recommended that you [fork this repository](https://github.com/PyBermuda/pybermuda-challenges/fork) and keep a the copy on your own GitHub account. [harrymunro](https://github.com/harrymunro) kindly [shared a guide](https://jarv.is/notes/how-to-pull-request-fork-github/) on how to do this 😊
 
 ## Environment
 
