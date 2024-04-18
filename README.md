@@ -2,6 +2,28 @@
 
 This repository contains scripts for small Python challenges to try, and subsequently discuss, at PyBermuda meetups.
 
+## Environment
+
+It is strongly recommended to use a virtual environment to run these challenges. To create a new virtual environment, run the following command:
+
+```bash
+python -m venv venv
+```
+
+To activate the virtual environment, run the following command:
+
+```bash
+source venv/bin/activate
+```
+
+To deactivate the virtual environment, run the following command:
+
+```bash
+deactivate
+```
+
+There are other ways to create and manage virtual environments, but this is the simplest way to get started. Check out `pyenv`, `conda`, or `poetry` to learn more.
+
 ## Installing dependencies
 
 To install the dependencies for all challenges, run the following command:
