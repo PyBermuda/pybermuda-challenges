@@ -29,9 +29,13 @@ from time import perf_counter
 
 
 def fibonacci(n) -> int:
-    # write your code here 👇👇
-    pass
-    # write your code here 👆👆
+    x = 0
+    sequence = [x]
+    for i in range(40):
+        x_new = x + sequence[i-1]
+        sequence.append(x_new)
+        print(sequence)
+    next(i)
 
 
 def check_fibonacci() -> None:
