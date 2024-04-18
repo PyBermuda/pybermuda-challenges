@@ -27,8 +27,6 @@ The unit tests can be found in the file 003/test_sort.py
 To run the tests simply run `pytest` in the terminal (after having done `pip install -r requirements.txt`)
 """
 
-from time import perf_counter
-
 
 def manual_sort(list: list, *, order: str) -> int:
     """

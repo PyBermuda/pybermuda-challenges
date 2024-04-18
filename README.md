@@ -2,6 +2,8 @@
 
 This repository contains scripts for small Python challenges to try, and subsequently discuss, at PyBermuda meetups.
 
+It is recommended that you [fork this repository](https://github.com/PyBermuda/pybermuda-challenges/fork) and keep a the copy on your own GitHub account.
+
 ## Environment
 
 It is strongly recommended to use a virtual environment to run these challenges. To create a new virtual environment, run the following command:
@@ -44,3 +46,10 @@ pip freeze > requirements.txt
 |------|---------|-----------|
 |`0.0.1`|[Wordle](001/wordle.py)|Write a function which solves a [Wordle](https://www.nytimes.com/games/wordle/index.html) puzzle.|
 |`0.0.2`|[Fibonacci](002/fibonacci.py)|Write a function which returns the _n_th number in the [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence)|
+|`0.0.3`|[Sorting](003/sort.py)|Implement a sorting algorithm without using in-built Python sorting functions / methods|
+
+## Participants
+
+If you want to out yourself as a participant, open a PR and add your name (and a link to your repo) to the list below:
+
+- [gtm19](https://github.com/gtm19/pybermuda-challenges)
