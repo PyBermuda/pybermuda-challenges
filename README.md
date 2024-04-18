@@ -2,6 +2,20 @@
 
 This repository contains scripts for small Python challenges to try, and subsequently discuss, at PyBermuda meetups.
 
+## Installing dependencies
+
+To install the dependencies for all challenges, run the following command:
+
+```bash
+pip install -r requirements.txt
+```
+
+If, on the way through, you add a new dependency, you can update the `requirements.txt` file by running:
+
+```bash
+pip freeze > requirements.txt
+```
+
 ## Links
 
 |Meetup|Challenge|Description|
