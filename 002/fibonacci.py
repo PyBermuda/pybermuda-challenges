@@ -30,9 +30,9 @@ from time import perf_counter
 
 def fibonacci(n) -> int:
     x = 0
-    sequence = [x]
-    for i in range(40):
-        x_new = x + sequence[i-1]
+    sequence = [0,0,1]
+    for i in range(n):
+        x_new = sequence[1-2] + sequence[i-1]
         sequence.append(x_new)
         print(sequence)
     next(i)
