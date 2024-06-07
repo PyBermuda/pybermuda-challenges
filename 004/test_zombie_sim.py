@@ -8,21 +8,21 @@ def test_simulation():
 
     initial_grid = [
         ["H", "H", "H", "Z"],
-        ["H", "H", "H", "H"],
+        ["H", "H", "E", "H"],
         ["H", "H", "H", "H"],
         ["H", "H", "H", "H"],
     ]
 
     expected_grid_after_1_day = [
         ["H", "H", "Z", "Z"],
-        ["H", "H", "H", "Z"],
+        ["H", "H", "E", "Z"],
         ["H", "H", "H", "H"],
         ["H", "H", "H", "H"],
     ]
 
     expected_grid_after_3_days = [
         ["Z", "Z", "Z", "Z"],
-        ["H", "Z", "Z", "Z"],
+        ["H", "Z", "E", "Z"],
         ["H", "H", "Z", "Z"],
         ["H", "H", "H", "Z"],
     ]
@@ -38,8 +38,8 @@ def test_simulation():
         result_after_3_days == expected_grid_after_3_days
     ), "Test case for 3 days failed"
 
-    print("All test cases passed!")
 
+if __name__ == "__main__":
+    import pytest
 
-# Run the test
-test_simulation()
+    pytest.main(["-v", __file__])

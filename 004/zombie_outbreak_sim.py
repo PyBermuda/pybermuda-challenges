@@ -5,7 +5,9 @@ Challenge Overview
 
 The objective is to simulate the spread of a zombie outbreak in a grid-based city.
 Each cell in the grid can either be empty, contain a human, or contain a zombie.
-Each day, zombies spread to adjacent cells (up, down, left, right), turning any humans in those cells into zombies.
+Each day, zombies spread to *all* adjacent cells which contain humans (up, down, left, right),
+turning any humans in those cells into zombies. Empty cells remain empty.
+
 The challenge will be to write a function that performs the simulation for a given number of days and generates expected results.
 
 Instructions for Participants
@@ -60,8 +62,8 @@ def simulate_zombie_outbreak(city, days):
 # Example usage
 initial_grid = [
     ["H", "H", "H", "Z"],
-    ["H", "H", "H", "H"],
-    ["H", "H", "H", "H"],
+    ["H", "H", "H", "E"],
+    ["H", "E", "H", "H"],
     ["H", "H", "H", "H"],
 ]
 
