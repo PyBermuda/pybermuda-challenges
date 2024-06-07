@@ -1,16 +1,20 @@
 """
 Zombie Outbreak Simulation
+==========================
 
 Challenge Overview
+------------------
 
 The objective is to simulate the spread of a zombie outbreak in a grid-based city.
 Each cell in the grid can either be empty, contain a human, or contain a zombie.
 Each day, zombies spread to *all* adjacent cells which contain humans (up, down, left, right),
 turning any humans in those cells into zombies. Empty cells remain empty.
 
-The challenge will be to write a function that performs the simulation for a given number of days and generates expected results.
+The challenge will be to write a function that performs the simulation for a given
+number of days and generates expected results.
 
 Instructions for Participants
+-----------------------------
 
     Understand the Grid Representation: The grid is a list of lists, where each element can be:
         'H' for a human
@@ -27,9 +31,13 @@ Instructions for Participants
         Ensure that the function correctly simulates the outbreak for the specified number of days.
 
 
-Bonus challenges:
-- Can you add more complexity and/or scale to the simulation? e.g. randomness, humans fighting back or a larger grid?.
-- If you add more complexity and find the behaviour becomes more "emergent", how would you adjust your testing approach?
+Bonus challenges
+----------------
+
+- Can you add more complexity and/or scale to the simulation? e.g. randomness, humans fighting back
+  or a larger grid?.
+- If you add more complexity and find the behaviour becomes more "emergent", how would you adjust
+  your testing approach?
 - How could you animate your results? (hint: using Pygame or Matplotlib)
 """
 
