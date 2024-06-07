@@ -31,6 +31,7 @@ Bonus challenges:
 - How could you animate your results? (hint: using Pygame or Matplotlib)
 """
 
+
 class City:
     def __init__(self, grid):
         self.grid = grid
@@ -58,10 +59,10 @@ def simulate_zombie_outbreak(city, days):
 
 # Example usage
 initial_grid = [
-    ['H', 'H', 'H', 'Z'],
-    ['H', 'H', 'H', 'H'],
-    ['H', 'H', 'H', 'H'],
-    ['H', 'H', 'H', 'H']
+    ["H", "H", "H", "Z"],
+    ["H", "H", "H", "H"],
+    ["H", "H", "H", "H"],
+    ["H", "H", "H", "H"],
 ]
 
 city = City(initial_grid)
@@ -70,6 +71,3 @@ city.print_grid()
 result = simulate_zombie_outbreak(city, 3)
 city.grid = result
 city.print_grid()
-
-
-

@@ -1,4 +1,5 @@
-from main import City, simulate_zombie_outbreak
+from zombie_outbreak_sim import City, simulate_zombie_outbreak
+
 
 def test_simulation():
     """
@@ -6,24 +7,24 @@ def test_simulation():
     """
 
     initial_grid = [
-        ['H', 'H', 'H', 'Z'],
-        ['H', 'H', 'H', 'H'],
-        ['H', 'H', 'H', 'H'],
-        ['H', 'H', 'H', 'H']
+        ["H", "H", "H", "Z"],
+        ["H", "H", "H", "H"],
+        ["H", "H", "H", "H"],
+        ["H", "H", "H", "H"],
     ]
 
     expected_grid_after_1_day = [
-        ['H', 'H', 'Z', 'Z'],
-        ['H', 'H', 'H', 'Z'],
-        ['H', 'H', 'H', 'H'],
-        ['H', 'H', 'H', 'H']
+        ["H", "H", "Z", "Z"],
+        ["H", "H", "H", "Z"],
+        ["H", "H", "H", "H"],
+        ["H", "H", "H", "H"],
     ]
 
     expected_grid_after_3_days = [
-        ['Z', 'Z', 'Z', 'Z'],
-        ['H', 'Z', 'Z', 'Z'],
-        ['H', 'H', 'Z', 'Z'],
-        ['H', 'H', 'H', 'Z']
+        ["Z", "Z", "Z", "Z"],
+        ["H", "Z", "Z", "Z"],
+        ["H", "H", "Z", "Z"],
+        ["H", "H", "H", "Z"],
     ]
 
     city = City(initial_grid)
@@ -33,7 +34,9 @@ def test_simulation():
 
     city = City(initial_grid)
     result_after_3_days = simulate_zombie_outbreak(city, 3)
-    assert result_after_3_days == expected_grid_after_3_days, "Test case for 3 days failed"
+    assert (
+        result_after_3_days == expected_grid_after_3_days
+    ), "Test case for 3 days failed"
 
     print("All test cases passed!")
 
