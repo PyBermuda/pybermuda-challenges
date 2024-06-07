@@ -47,6 +47,7 @@ pip freeze > requirements.txt
 |`0.0.1`|[Wordle](001/wordle.py)|Write a function which solves a [Wordle](https://www.nytimes.com/games/wordle/index.html) puzzle.|
 |`0.0.2`|[Fibonacci](002/fibonacci.py)|Write a function which returns the _n_th number in the [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_sequence)|
 |`0.0.3`|[Sorting](003/sort.py)|Implement a sorting algorithm without using in-built Python sorting functions / methods|
+|`0.0.4`|[Zombie outbreak simulations](004/zombie_outbreak_sim.py)|The objective is to simulate the spread of a zombie outbreak in a grid-based city.|
 
 ## Participants
 
