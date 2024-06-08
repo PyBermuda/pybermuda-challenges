@@ -27,10 +27,16 @@ previous calculations it had performed?
 
 from time import perf_counter
 
-
 def fibonacci(n) -> int:
     # write your code here 👇👇
-    pass
+    if n < 0:
+        raise Exception("This Fibonacci sequence is only defined for the natural numbers.")
+    v = (2, 0)
+    def raise_to_next_power(v):
+        return (v[0] + 5 * v[1]) >> 1, (v[1] + v[0]) >> 1
+    for _ in range(1, n):
+        v = raise_to_next_power(v)
+    return v[1]
     # write your code here 👆👆
 
 
