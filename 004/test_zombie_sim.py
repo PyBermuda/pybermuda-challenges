@@ -1,38 +1,44 @@
+import pytest
 from zombie_outbreak_sim import City, simulate_zombie_outbreak
 
 
-def test_simulation():
-    """
-    Test that the simulate_zombie_outbreak function behaves as expected.
-    """
-
+@pytest.fixture
+def city():
     initial_grid = [
         ["H", "H", "H", "Z"],
         ["H", "H", "E", "H"],
         ["H", "H", "H", "H"],
         ["H", "H", "H", "H"],
     ]
+    return City(initial_grid)
 
-    expected_grid_after_1_day = [
+
+@pytest.fixture
+def expected_grid_after_1_day():
+    return [
         ["H", "H", "Z", "Z"],
         ["H", "H", "E", "Z"],
         ["H", "H", "H", "H"],
         ["H", "H", "H", "H"],
     ]
 
-    expected_grid_after_3_days = [
+
+@pytest.fixture
+def expected_grid_after_3_days():
+    return [
         ["Z", "Z", "Z", "Z"],
         ["H", "Z", "E", "Z"],
         ["H", "H", "Z", "Z"],
         ["H", "H", "H", "Z"],
     ]
 
-    city = City(initial_grid)
 
+def test_day_1_simulation(city, expected_grid_after_1_day):
     result_after_1_day = simulate_zombie_outbreak(city, 1)
     assert result_after_1_day == expected_grid_after_1_day, "Test case for 1 day failed"
 
-    city = City(initial_grid)
+
+def test_day_3_simulation(city, expected_grid_after_3_days):
     result_after_3_days = simulate_zombie_outbreak(city, 3)
     assert (
         result_after_3_days == expected_grid_after_3_days
