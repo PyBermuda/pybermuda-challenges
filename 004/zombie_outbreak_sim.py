@@ -70,8 +70,8 @@ def simulate_zombie_outbreak(city, days):
 # Example usage
 initial_grid = [
     ["H", "H", "H", "Z"],
-    ["H", "H", "H", "E"],
-    ["H", "E", "H", "H"],
+    ["H", "H", "E", "H"],
+    ["H", "H", "H", "H"],
     ["H", "H", "H", "H"],
 ]
 
