@@ -29,9 +29,27 @@ from time import perf_counter
 
 
 def fibonacci(n) -> int:
-    # write your code here 👇👇
-    pass
-    # write your code here 👆👆
+    """
+    Return the nth number in the Fibonacci sequence.
+
+    args:
+        n: int - the number in the sequence to return
+    """
+    # Set the first two numbers in the sequence
+    a, b = 0, 1
+
+    # If n is 0 or 1, return the respective value
+    if n == 0:
+        return a
+    if n == 1:
+        return b
+
+    # Loop through the range of 2 to n
+    for _ in range(2, n):
+        a, b = b, a + b
+
+    # We only want to return the last value
+    return b
 
 
 def check_fibonacci() -> None:
